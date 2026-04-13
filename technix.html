@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Technix | Future of Sports Motion</title>
+        <meta
+            name="description"
+            content="Technix - Experience the fluid motion and precision of modern sports through minimalist design."
+        />
+        <link rel="stylesheet" href="technix.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="bgVideo">
+                <source src="video1.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+            </video>
+            <div class="overlay"></div>
+        </div>
+
+        <header>
+            <nav>
+                <div class="logo">TECHNIX<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li>
+                        <a href="#contact" class="btn-primary">Get Started</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="content">
+                    <h1 class="fade-in">EVOLUTION <span>IN MOTION.</span></h1>
+                    <p class="fade-in delay-1">
+                        Scroll to experience the fluid precision of sports
+                        technology. Every frame, a masterpiece of data and
+                        design.
+                    </p>
+                </div>
+            </section>
+
+            <section class="scroll-section">
+                <div class="content">
+                    <h2>PRECISION ANALYTICS</h2>
+                    <p>
+                        Our algorithms track every micro-movement with
+                        millisecond accuracy, providing insights that were
+                        previously invisible to the naked eye.
+                    </p>
+                </div>
+            </section>
+
+            <section class="scroll-section">
+                <div class="content">
+                    <h2>FLUID VISUALIZATION</h2>
+                    <p>
+                        Turning complex data into beautiful, intuitive
+                        interfaces that help athletes and coaches reach the next
+                        level of performance.
+                    </p>
+                </div>
+            </section>
+
+            <section class="scroll-section">
+                <div class="content">
+                    <h2>FUTURE READY</h2>
+                    <p>
+                        The next generation of sports is here. Powered by AI,
+                        driven by motion, and designed for the elite.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const video = document.getElementById("bgVideo");
+
+            // Optimization: Preload the video metadata
+            video.addEventListener("loadedmetadata", () => {
+                const scrollHeight =
+                    document.documentElement.scrollHeight - window.innerHeight;
+
+                window.addEventListener("scroll", () => {
+                    const scrollTop = window.scrollY;
+                    const scrollFraction = scrollTop / scrollHeight;
+
+                    // Update video time based on scroll position
+                    // Multiplied by duration to map scroll 0-1 to video timeline
+                    if (video.duration) {
+                        video.currentTime = scrollFraction * video.duration;
+                    }
+                });
+            });
+
+            // Prevent video from playing automatically to allow manual control via scroll
+            video.pause();
+
+            // Remove the loop attribute for scroll-based control to prevent jumps
+            video.removeAttribute("loop");
+        </script>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Technix Motion Systems. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
